@@ -13,6 +13,9 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 #     model = Post
 #     template_name = 'blog/post_detail.html'
 
+def HomePage(request):
+    return render(request, 'index.html')
+
 def PostList(request):
     object_list = Post.objects.filter(status=1).order_by('-created_on')
     paginator = Paginator(object_list, 3)
@@ -27,7 +30,7 @@ def PostList(request):
         post_list = paginator.page(paginator.num_pages)
     finally:
         return render(request,
-                    'index.html',
+                    'blog/index.html',
                     {'page': page,
                     'post_list': post_list})
 

@@ -1,0 +1,95 @@
+.header
+{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+.navbar
+{
+    padding: 20px 40px;
+}
+.navbar-brand
+{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: #262626;
+}
+.nav-item
+{
+    font-weight: 800;
+    text-transform: uppercase;
+}
+.navbar-light .navbar-nav .nav-item .nav-link:hover,
+.navbar-light .navbar-nav .nav-item.active .nav-link
+{
+    background: #262626;
+    color: #FFF;
+}
+.navbar-light .navbar-nav .nav-item .nav-link
+{
+    color: #262626;
+    padding: 5px 15px;
+}
+.banner
+{
+    position: relative;
+    background: url(../img/bg.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    padding: 250px 0 200px;
+}
+.banner h2
+{
+    margin: 0;
+    padding: 0;
+    font-size: 2.8em;
+    font-weight: 1000;
+    color: #262626;
+    text-transform: uppercase;
+}
+.banner p
+{
+    margin: 1em 0 0;
+    padding: 0;
+    font-size: 1.2em;
+    font-weight: 1000;
+    line-height: 1.5em;
+    color: #262626;   
+}
+.btnD1
+{
+    display: inline-block;
+    margin: 1em 0 0;
+    background: #ff2670;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: none;
+    font-weight: 800;
+}
+.btnD1:hover
+{
+    color: #fff;
+    text-decoration: none;
+}
+.navbar-light .navbar-toggler
+{
+    border: none;
+    columns: #fff;
+    border: 2px solid #7f7f7f;
+    border-radius: 0;
+    outline: none;
+}
+.navbar-collapse
+{
+    background-image: #ffffff;
+}
+@media (max-width: 768px)
+{
+    .banner
+    {
+        padding: 200px 0;
+    }  
+}
