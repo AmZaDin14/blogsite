@@ -2,14 +2,34 @@ from django.views import generic
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 from .forms import CommentForm
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
-class PostList(generic.ListView):
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'index.html'
+# class PostList(generic.ListView):
+#     queryset = Post.objects.filter(status=1).order_by('-created_on')
+#     template_name = 'index.html'
+#     paginate_by = 3
 
 # class PostDetail(generic.DetailView):
 #     model = Post
 #     template_name = 'blog/post_detail.html'
+
+def PostList(request):
+    object_list = Post.objects.filter(status=1).order_by('-created_on')
+    paginator = Paginator(object_list, 3)
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        # Jika variabel page bukan Integer, tampilkan halaman pertama
+        post_list = paginator.page(1)
+    except EmptyPage:
+        # Jika variabel page melebihi, tampilkan halaman terakhir
+        post_list = paginator.page(paginator.num_pages)
+    finally:
+        return render(request,
+                    'index.html',
+                    {'page': page,
+                    'post_list': post_list})
 
 def post_detail(request, slug):
     template_name = 'blog/post_detail.html'
