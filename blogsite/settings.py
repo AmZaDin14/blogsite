@@ -81,10 +81,21 @@ WSGI_APPLICATION = 'blogsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'starlights-database',
+        'USER': 'amri@starlights',
+        'PASSWORD': '@mrireza2003',
+        'HOST': 'starlights.database.windows.net',
+        'PORT': '1433',
+        
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+        }
     }
 }
+
+DATABASE_CONNECTION_POOLING = False
+
 
 
 # Password validation
