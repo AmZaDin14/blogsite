@@ -1,54 +1,65 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width", initial-scale=1.0">
-        <meta charset="utf-8">
-        <title>Maulana Blog</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#">StarLigHT</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-            </div>
-        </header>
-        <section class="banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h2>Lorem ipsum dolor sit amet</h2>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum dolore assumenda perspiciatis, dolor repellat eos! Omnis debitis.</p>
-                        <a href="/blog" class="btnD1">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid height100p banner" id="home">
+  <div class="container h100">
+    <div class="contentBox h100">
+      <div>
+        <h1 data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">Enchance Yourself</h1>
+        <p data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="500">Jaringan, Pemrograman, Mikrotik, Linux, dan
+          Ubuntu</p>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="sec1" id="explore">
+  <div class="container">
+    <div class="row">
+      <div class="offset-sm-2 col-sm-8">
+        <div class="headerText text-center">
+          <h2 data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">Developer</h2>
+          <p data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="100">Website ini dibuat pada 1 Desember 2020
+            sebagai hasil mengimplementasikan dari sebuah contoh video tutorial</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="placeBox" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="500">
+          <div class="imgBx">
+            {% load static %}
+            <img src="{% static 'img/amri.jpeg' %}" class="img-fluid image-resize max-height">
+          </div>
+          <div class="content">
+            <h3>Amri Reza Wahyudin<br><span>Back-End Programmer</span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-6" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="1000">
+        <div class="placeBox">
+          <div class="imgBx">
+            {% load static %}
+            <img src="{% static 'img/maul.jpeg' %}" class="img-fluid image-resize">
+          </div>
+          <div class="content">
+            <h3>Maulana Firmansyah<br><span>Front-End Programmer</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec2" id="adventure">
+  <div class="container h100">
+    <div class="contentBox h100">
+      <div>
+        <h1 data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">About Us</h1>
+        <p data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="500">Lorem ipsum dolor sit amet, consectetur
+          adipisicing elit. Inventore a ullam quia numquam deserunt aut eligendi accusantium, necessitatibus in, odio
+          tenetur vitae nostrum dolore qui aperiam iure doloremque possimus. Accusamus!</p>
+        <a href="#" class="btn btnD1" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="1000">Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+  {%endblock%}

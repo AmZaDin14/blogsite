@@ -4,7 +4,11 @@
     body {
         font-family: "Roboto", sans-serif;
         font-size: 18px;
-        background-color: #fdfdfd;
+        background-color: #000;
+    }
+
+    .dark {
+        background-color: #000;
     }
 
     .head_text {
@@ -12,28 +16,15 @@
     }
 
     .card {
-        box-shadow: 0 16px 48px #E3E7EB;
+        /* background-color: #aaa; */
+        box-shadow: 0 16px 48px #262626;
     }
 </style>
 
-<header class="masthead">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class=" col-md-8 col-md-10 mx-auto">
-                <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Selamat datang di blog StarLigHT </h3>
-                    <p class="text-light">Kami menyediakan banyak informasi..! &nbsp
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-<div class="container">
+<div class="container dark">
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-md-8 mt-3 left">
+        <div class="col-md mt-3 left">
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
@@ -45,7 +36,7 @@
             </div>
             {% endfor %}
         </div>
-        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+        {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
     </div>
     {% if post_list.has_other_pages %}
     <nav aria-label="Page navigation conatiner"></nav>

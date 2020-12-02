@@ -1,17 +1,57 @@
 {% extends 'base.html' %} {% block content %}
 {% load crispy_forms_tags %}
+
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #000;
+    }
+
+    .dark {
+        background-color: #000;
+    }
+
+    .post-banner {
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        /* background-color: #aaa; */
+        box-shadow: 0 16px 48px #262626;
+        min-height: 300px;
+    }
+</style>
+
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
+    <div class="col-md-10 card mb-4  mt-3 left">
       <div class="card-body">
-        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <div class="card-body">
+          {% load static %}
+          <img src="{% static '/img/1.jpg' %}" class="img-fluid post-banner" alt="">
+        </div>
+        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author.get_full_name }} | {{ post.created_on }}</p>
         <p class="card-text ">{{ post.content | safe }}</p>
       </div>
     </div>
-    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
 
-    <div class="col-md-8 card mb-4 mt3">
+    <div class="col-md-10 card mb-4  mt-3 left">
+      <div class="card-body">
+        {% comment %} <h1>{% block title %} {{ object.title }} {% endblock title %}</h1> {% endcomment %}
+        <p class=" text-muted">{{ post.author.get_full_name }} | {{ post.created_on }}</p>
+        <p class="card-text ">{{ post.content | safe }}</p>
+      </div>
+    </div>
+    {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
+
+    <div class="col-md-10 card mb-4 mt3">
       <div class="card-body">
         <h2>{{ comments.count }} comments</h2>
 
@@ -28,7 +68,7 @@
         {% endfor %}
       </div>
     </div>
-    <div class="col-md-8 card mb-4  mt-3 ">
+    <div class="col-md-10 card mb-4  mt-3 ">
       <div class="card-body">
         {% if new_comment %}
         <div class="alert alert-success" role="alert">
