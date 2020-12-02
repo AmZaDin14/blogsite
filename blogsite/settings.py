@@ -81,16 +81,18 @@ WSGI_APPLICATION = 'blogsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'starlights-database',
-        'USER': 'amri@starlights',
-        'PASSWORD': '@mrireza2003',
-        'HOST': 'starlights.database.windows.net',
-        'PORT': '1433',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'sql_server.pyodbc',
+        # 'NAME': 'starlights-database',
+        # 'USER': 'amri@starlights',
+        # 'PASSWORD': '@mrireza2003',
+        # 'HOST': 'starlights.database.windows.net',
+        # 'PORT': '1433',
         
-        'OPTIONS': {
-            'driver': '{ODBC Driver 13 for SQL Server}',
-        }
+        # 'OPTIONS': {
+        #     'driver': '{ODBC Driver 13 for SQL Server}',
+        # }
     }
 }
 

@@ -8,9 +8,6 @@ django = "*"
 django-crispy-forms = "*"
 django-summernote = "*"
 whitenoise = "*"
-pyodbc = "*"
-django-azure-sql-backend = "*"
-django-pyodbc-azure = "*"
 
 [dev-packages]
 
