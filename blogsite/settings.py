@@ -26,7 +26,6 @@ SECRET_KEY = 'ogu9vbf)$6*lpj5pzm$0&rm#$9s-n*p9a&^&jsg@-6)^^_r2+o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#
 ALLOWED_HOSTS = ['*']
 
 
@@ -90,7 +89,7 @@ DATABASES = {
         'PORT': '1433',
         
         'OPTIONS': {
-            'driver': 'ODBC Driver 13 for SQL Server',
+            'driver': '{ODBC Driver 13 for SQL Server}',
         }
     }
 }
