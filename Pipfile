@@ -8,6 +8,7 @@ django = "*"
 django-crispy-forms = "*"
 django-summernote = "*"
 whitenoise = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
