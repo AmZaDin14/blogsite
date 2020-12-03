@@ -83,9 +83,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'starlights',
-        'USER': 'admin',
+        'USER': 'amri',
         'PASSWORD': 'admin',
-        'HOST': '13.76.82.140',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
