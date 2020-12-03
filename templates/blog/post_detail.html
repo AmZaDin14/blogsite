@@ -34,7 +34,7 @@
       <div class="card-body">
         <div class="card-body">
           {% load static %}
-          <img src="{% static '/img/1.jpg' %}" class="img-fluid post-banner" alt="">
+          <img src="{{ post.image.url }}" class="img-fluid post-banner">
         </div>
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author.get_full_name }} | {{ post.created_on }}</p>
