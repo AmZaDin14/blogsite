@@ -16,7 +16,7 @@ header
 }
 p
 {
-    font-size: 1.15rem
+    font-size: 1rem
 }
 .navbar
 {
@@ -30,7 +30,7 @@ p
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: #000;
-    background: #ffffff;
+    background: #ffffff; 
 }
 .navbar-light .navbar-nav .active>.nav-link:hover
 {
@@ -64,8 +64,7 @@ p
     margin-bottom: 0;
 }
 .banner:before,
-.sec2:before,
-.contact:before
+.about:before
 {
     content: '';
     position: absolute;
@@ -77,8 +76,7 @@ p
     pointer-events: none;
 }
 .banner:after,
-.sec2:after,
-.contact:after
+.about:after
 {
     content: '';
     position: absolute;
@@ -120,7 +118,68 @@ p
     text-shadow: #262626;
     font-size: 1.3rem;
 }
-.sec1
+.blog
+{
+    position: relative;
+    padding: 50px 0;
+    background-color: #000000;
+}
+.main-row
+{
+    margin: 8%;
+    background-color: #fff;
+    box-shadow: 0 0 10px 10px rgba(0,0,0,.05);
+    border-radius: 0.5rem;
+}
+.placeBox .blog-img
+{
+    width: 100%;
+    height: 100%;
+}
+.placeBox .blog-img img
+{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.blog-img img
+{
+    width: 400px;
+    max-height: 180px;
+    transform: translateY(-30px);
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0px 3px rgba(0,0,0,.3);
+}
+.blog-date span
+{
+    font-size: 0.9rem;
+    color: #962c51;
+}
+.ul-cls
+{
+    justify-content: center;
+}
+.ul-cls li
+{
+    cursor: pointer;
+}
+.blog-title > h2
+{
+    font-style: normal;
+    font-weight: 400;
+}
+.blog-desc > p
+{
+    font-style: normal;
+    font-size: 0.9rem;
+    line-height: 2;
+}
+.button-blogpost
+{
+    text-align: center;
+}
+.developer
 {
     padding: 100px 0;
     background: #000;
@@ -182,14 +241,14 @@ p
     font-size: 16px;
     font-weight: 500;
 }
-.sec2
+.about
 {
     position: relative;
     background: url(../img/bgcoding2.jpg);
     background-size: cover;
     height: 100vh;
 }
-.sec2 h2
+.about h2
 {
     font-weight: 800;
     color: #fff;
@@ -207,90 +266,6 @@ p
     outline: none;
     font-weight: 500;
     margin-top: 20px;
-}
-.blog
-{
-    position: relative;
-    padding: 100px 0;
-    background: #000;
-}
-.blogpost
-{
-    position: relative;
-    width: 100%;
-    margin-top: 30px;
-    background: #fff;
-}
-.blogpost .imgBx
-{
-    height: 400px;
-}
-.blogpost .imgBx img
-{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.blogpost .content
-{
-    padding: 15px;
-}
-
-.blogpost .content h1
-{
-    margin: 0;
-    padding: 0;
-    font-weight: 600;
-    font-size: 1.5rem;
-}
-.btnD2,
-.btnD2:hover
-{
-    background: #262626;
-    color: #fff;
-    border-radius: 30px;
-    padding: 10px 20px;
-    float: right;
-}
-.contact
-{
-    position: relative;
-    padding: 100px 0;
-    background: url(../img/bgnature.jpg);
-    background-size: cover;
-    min-height: 100vh;
-}
-.contact form
-{
-    position: relative;
-    z-index: 1000;
-}
-.contact .form-control
-{
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid rgba(255,255,255,.2);
-    height: 50px;
-    border-radius: 0;
-    background: rgba(0,0,0,.6);
-    color: #fff;
-    font-size: 1.25rem;
-}
-.contact .form-control:focus,
-.contact .form-control:hover
-{
-    border: none;
-    border-bottom: 2px solid rgba(255,255,255,1);
-    box-shadow: none;
-}
-.contact .textarea
-{
-    min-height: 100px;
-}
-.contact label
-{
-    color: #fff;
-    font-size: 1.25rem;
 }
 footer
 {
@@ -334,17 +309,15 @@ footer
 @media (min-width: 992px)
 {
     .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: .1.5rem;
-        padding-left: .1.5rem;
+        padding-right: .7rem;
+        padding-left: .7rem;
     }
 }
-
-.navbar-light .navbar-toggler
+.navbar-light .navbar-toggler 
 {
     background: #fff;
-    border-radius: 50;
+    border-radius: 0;
 }
-
 .banner
 {
     min-height: 100vh;
@@ -358,8 +331,7 @@ footer
 {
     font-size: 1rem;
 }
-
-.navbar-nav .nav-link
+.navbar-nav .nav-link 
 {
     padding-right: 0;
     padding-left: 20px;

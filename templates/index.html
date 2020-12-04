@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% load static %}
 <div class="jumbotron jumbotron-fluid height100p banner" id="home">
   <div class="container h100">
     <div class="contentBox h100">
@@ -8,13 +8,121 @@
         <h1 data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">Enhance Yourself</h1>
         <p data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="500">Jaringan, Pemrograman, Mikrotik, Linux, dan
           Ubuntu</p>
-          <a href="/blog" class="btn btnD1" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="1000">Menuju Blog</a>
-
       </div>
     </div>
   </div>
 </div>
-<section class="sec1" id="explore">
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="offset-sm-2 col-sm-8">
+        <div class="headerText text-center">
+          <h2 data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">Our Latest Post</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row main-row p-2" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">
+      <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="100">
+        <div class="blog-img">
+          <img src="{% static 'img/3.jpg' %}" alt="Post" class="img-fluid">
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mb-2">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item">
+                <i class="fas fa-tags" aria-hidden="true"><a href="#"> Pemrograman</a></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="200">
+        <div class="blog-title mb-3">
+          <h3>Blog Post Design</h3>
+        </div>
+        <div class="blog-date mb-2">
+          <span>Selasa,</span>
+          <span>01 Desember 2020</span>
+        </div>
+        <div class="blog-desc">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis incidunt consequuntur accusamus
+            possimus maiores suscipit aperiam nemo....</p>
+        </div>
+        <div class="blog-read-more">
+          <button class="btn btn-outline-dark">Read More</button>
+        </div>
+      </div>
+    </div>
+    <div class="row main-row p-2" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">
+      <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="100">
+        <div class="blog-img">
+          <img src="{% static 'img/1.jpg' %}" alt="Post" class="img-fluid">
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mb-2">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item">
+                <i class="fas fa-tags" aria-hidden="true"><a href="#"> Pemrograman</a></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="200">
+        <div class="blog-title mb-3">
+          <h3>Blog Post Design</h3>
+        </div>
+        <div class="blog-date mb-2">
+          <span>Rabu,</span>
+          <span>02 Desember 2020</span>
+        </div>
+        <div class="blog-desc">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis incidunt consequuntur accusamus
+            possimus maiores suscipit aperiam nemo....</p>
+        </div>
+        <div class="blog-read-more">
+          <button class="btn btn-outline-dark">Read More</button>
+        </div>
+      </div>
+    </div>
+    <div class="row main-row p-2" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">
+      <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="100">
+        <div class="blog-img">
+          <img src="{% static 'img/4.png' %}" alt="Post" class="img-fluid">
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mb-2">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item">
+                <i class="fas fa-tags" aria-hidden="true"><a href="#"> Pemrograman</a></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="200">
+        <div class="blog-title mb-3">
+          <h3>Blog Post Design</h3>
+        </div>
+        <div class="blog-date mb-2">
+          <span>Kamis,</span>
+          <span>03 Desember 2020</span>
+        </div>
+        <div class="blog-desc">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis incidunt consequuntur accusamus
+            possimus maiores suscipit aperiam nemo....</p>
+        </div>
+        <div class="blog-read-more">
+          <button class="btn btn-outline-dark">Read More</button>
+        </div>
+      </div>
+    </div>
+    <div class="button-blogpost">
+      <a href="blog.html" class="btn btnD1" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">View More</a>
+    </div>
+  </div>
+</section>
+<section class="developer" id="developer">
   <div class="container">
     <div class="row">
       <div class="offset-sm-2 col-sm-8">
@@ -29,7 +137,6 @@
       <div class="col-6">
         <div class="placeBox" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="500">
           <div class="imgBx">
-            {% load static %}
             <img src="{% static 'img/amri.jpeg' %}" class="img-fluid image-resize max-height">
           </div>
           <div class="content">
@@ -40,7 +147,6 @@
       <div class="col-6" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="1000">
         <div class="placeBox">
           <div class="imgBx">
-            {% load static %}
             <img src="{% static 'img/maul.jpeg' %}" class="img-fluid image-resize">
           </div>
           <div class="content">
@@ -51,11 +157,11 @@
     </div>
   </div>
 </section>
-<section class="sec2" id="adventure">
+<section class="about" id="about">
   <div class="container h100">
     <div class="contentBox h100">
       <div>
-        <h1 data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">Tentang Kami</h1>
+        <h1 data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">About Us</h1>
         <p data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="500">Lorem ipsum dolor sit amet, consectetur
           adipisicing elit. Inventore a ullam quia numquam deserunt aut eligendi accusantium, necessitatibus in, odio
           tenetur vitae nostrum dolore qui aperiam iure doloremque possimus. Accusamus!</p>
@@ -64,4 +170,4 @@
     </div>
   </div>
 </section>
-  {%endblock%}
+{%endblock%}

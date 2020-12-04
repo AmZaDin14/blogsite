@@ -17,6 +17,7 @@ def HomePage(request):
     return render(request, 'index.html')
 
 def PostList(request):
+    title = 'Blog'
     object_list = Post.objects.filter(status=1).order_by('-created_on')
     paginator = Paginator(object_list, 3)
     page = request.GET.get('page')
@@ -32,6 +33,7 @@ def PostList(request):
         return render(request,
                     'blog/index.html',
                     {'page': page,
+                    'title': title,
                     'post_list': post_list})
 
 def post_detail(request, slug):
@@ -51,8 +53,12 @@ def post_detail(request, slug):
             new_comment.save()
     else:
         comment_form = CommentForm()
-        
-    return render(request, template_name, {'post': post,
-                                           'comments': comments,
-                                           'new_comment': new_comment,
-                                           'comment_form': comment_form})
+    
+    context = {
+        'post': post,
+        'title': post.title,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form
+    }
+    return render(request, template_name, context)

@@ -1,118 +1,120 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
-<head>
-	<title>StarLigHT</title>
-	{% load static %}
-	<link rel="icon" href="{% static 'img/logo.png' %}">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-	<meta name="google" content="notranslate" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-	{% load static %}
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
+	<head>
+		<title>StarLigHTs{% if 1 %} - {{ 'Yay' }}{% endif %}</title>
+		<link rel="icon" href="{% static 'img/logo.png' %}">
+		{% comment %}
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> {% endcomment %}
+		<meta name="google" content="notranslate" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	</head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-	<style>
-		body {
-			font-family: "Roboto", sans-serif;
-			font-size: 17px;
-			background-color: #fdfdfd;
-		}
+	<body data-spy="scroll" data-target=".navbar" data-offset="50">
+		<style>
+			.shadow {
+				box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+			}
 
-		.shadow {
-			box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-		}
+			.btn-danger {
+				color: #fff;
+				background-color: #f00000;
+				border-color: #dc281e;
+			}
 
-		.btn-danger {
-			color: #fff;
-			background-color: #f00000;
-			border-color: #dc281e;
-		}
+			.masthead {
+				background: #3398E1;
+				height: auto;
+				padding-bottom: 15px;
+				box-shadow: 0 16px 48px #E3E7EB;
+				padding-top: 10px;
+			}
+		</style>
 
-		.masthead {
-			background: #3398E1;
-			height: auto;
-			padding-bottom: 15px;
-			box-shadow: 0 16px 48px #E3E7EB;
-			padding-top: 10px;
-		}
-	</style>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+				<div class="container">
+					<a class="navbar-brand" href="{% url 'home' %}">
+						<img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+						StarLigHTs
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fas fa-bars"></i>
+					</button>
 
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-lg-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#blog">Blog Post</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#developer">Developer</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#about">Tentang Kami</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		{% block content %}
+		<!-- Content Goes here -->
+		{% endblock content %}
+		<!-- Footer -->
+		<footer>
 			<div class="container">
-				<a class="navbar-brand" href="/">
-					{% load static %}
-					<img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-					StarLigHT
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav ml-lg-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/blog">Blog Post</a>
-						</li>
-					</ul>
+				<div class="row">
+					<div class="col-sm-12">
+						<ul class="sci">
+							<li><a href="https://web.facebook.com/maulana.firmansyah.1485/"><i
+										class="fa fa-facebook"></i></a></li>
+							<!--use font awesome icon-->
+							<li><a href="https://twitter.com/maulanazxz"><i class="fa fa-twitter"></i></a></li>
+							<!--use font awesome icon-->
+							<li><a href="https://github.com/iMazXZ"><i class="fa fa-github"></i></a></li>
+							<!--use font awesome icon-->
+							<li><a href="https://www.instagram.com/maulanazxz/"><i class="fa fa-instagram"></i></a></li>
+							<!--use font awesome icon-->
+						</ul>
+						<p class="cpryt">© Copyright 2020 | <a href="#">StarLigHT Team</a></p>
+					</div>
 				</div>
 			</div>
-		</nav>
-	</header>
-	{% block content %}
-	<!-- Content Goes here -->
-	{% endblock content %}
-	<!-- Footer -->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<ul class="sci">
-						<li><a href="https://web.facebook.com/maulana.firmansyah.1485/"><i class="fa fa-facebook"></i></a></li>
-						<!--use font awesome icon-->
-						<li><a href="https://twitter.com/maulanazxz"><i class="fa fa-twitter"></i></a></li>
-						<!--use font awesome icon-->
-						<li><a href="https://github.com/iMazXZ"><i class="fa fa-github"></i></a></li>
-						<!--use font awesome icon-->
-						<li><a href="https://www.instagram.com/maulanazxz/"><i class="fa fa-instagram"></i></a></li>
-						<!--use font awesome icon-->
-					</ul>
-					<p class="cpryt">© Copyright 2020 | <a href="#">StarLigHT Team</a></p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
-	<script type="text/javascript">
-		$(document).scroll(function () {
-			$('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
-		});
-	</script>
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	<script>
-		AOS.init();
-	</script>
-</body>
+		</footer>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"></script>
+		<script type="text/javascript">
+			$(document).scroll(function () {
+				$('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
+			});
+		</script>
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+		<script>
+			AOS.init();
+		</script>
+	</body>
 
 </html>

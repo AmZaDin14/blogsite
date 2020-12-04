@@ -23,7 +23,6 @@
 
 <div class="container dark">
     <div class="row">
-        <!-- Blog Entries Column -->
         <div class="col-md mt-3 left">
             {% for post in post_list %}
             <div class="card mb-4">
@@ -36,7 +35,6 @@
             </div>
             {% endfor %}
         </div>
-        {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
     </div>
     {% if post_list.has_other_pages %}
     <nav aria-label="Page navigation conatiner"></nav>
