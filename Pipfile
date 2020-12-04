@@ -10,6 +10,7 @@ django-summernote = "*"
 whitenoise = "*"
 psycopg2-binary = "*"
 pillow = "*"
+gunicorn = "*"
 
 [dev-packages]
 
