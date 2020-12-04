@@ -1,53 +1,72 @@
 {% extends "base.html" %}
 {% block content %}
-<style>
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #000;
-    }
-
-    .dark {
-        background-color: #000;
-    }
-
-    .head_text {
-        color: white;
-    }
-
-    .card {
-        /* background-color: #aaa; */
-        box-shadow: 0 16px 48px #262626;
-    }
-</style>
-
-<div class="container dark">
-    <div class="row">
-        <div class="col-md mt-3 left">
-            {% for post in post_list %}
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">{{ post.author.get_full_name }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|slice:":200"|safe }}...</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
-                </div>
+<!-- Awal Jumbotron -->
+<section class="jumbotron-bg">
+    <div class="jumbotron warna-bg text-white">
+        <div class="container">
+            <h1 class="display-4">Artikel Terbaru</h1>
+            <p class="lead"><b>StarLigHTs</b> merupakan tempat berkumpulnya Tutorial TKJ mulai dari Pemrograman,
+                Jaringan, Mikrotik, Linux dan Ubuntu.
+            </p>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
             </div>
-            {% endfor %}
         </div>
     </div>
-    {% if post_list.has_other_pages %}
-    <nav aria-label="Page navigation conatiner"></nav>
-    <ul class="pagination justify-content-center">
-        {% if post_list.has_previous %}
-        <li><a href="?page={{ post_list.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-        {% endif %}
-        {% if post_list.has_next %}
-        <li><a href="?page={{ post_list.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-        {% endif %}
-    </ul>
+</section>
+<!-- Akhir Jumbotron -->
+
+<!-- Awal Content -->
+<div class="container">
+    <nav class="breadcrumb ">
+        <h6 class="breadcrumb-item"><a href="index.html">Home</a></h6>
+        <h6 class="breadcrumb-item active">Blog Post</h6>
     </nav>
+    <div class="row">
+        {% for post in post_list %}
+        <div class="col-md-6 mb-2">
+            <div class="shadow p-3 border-0 card">
+                <img src="https://dummyimage.com/1920x1080/fff/000" class="card-img-top img-fluid" alt="Gambar">
+                <div class="card-body">
+                    <h6 class="card-title text-info"><i class="fas fa-tags" aria-hidden="true"></i> Category</h6>
+                    <p class="card-text"><small class="text-muted">{{ post.created_on }}</small></p>
+                    <h3 class="card-text"><a href="{% url 'post_detail' post.slug %}"
+                            class="text-primary">{{ post.title }}</h3>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
+<!-- Akhir Content -->
+
+<nav aria-label="Page navigation conatiner">
+<ul class="pagination justify-content-center">
+    
+</ul>
+</nav>
+{% if post_list.has_other_pages %}
+<nav aria-label="Page navigation conatiner">
+  <ul class="pagination justify-content-center">
+    {% if post_list.has_previous %}
+    <li><a href="?page={{ post_list.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+    {% else %}
+      <li class="disabled page-link"><a href="#"></a><span class="text-muted">&laquo;</span></li>
+    {% endif %}
+    {% for i in post_list.paginator.page_range %}
+      {% if post_list.number == i %}
+        <li class="active"><span class="page-link text-muted">{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if post_list.has_next %}
+    <li><a href="?page={{ post_list.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+    {% else %}
+      <li class="disabled page-link"><span class="text-muted">&raquo;</span></li>
+    {% endif %}
+  </ul>
+  </nav>
 {% endif %}
-</div>
 {%endblock%}
