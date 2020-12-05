@@ -1,6 +1,8 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 {% block content %}
 {% load static %}
+{% load webp_converter %}
+{% load humanize %}
 <div class="jumbotron jumbotron-fluid height100p banner" id="home">
   <div class="container h100">
     <div class="contentBox h100">
@@ -21,16 +23,17 @@
         </div>
       </div>
     </div>
+    {% for post in recent_posts %}
     <div class="row main-row p-2" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">
       <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="100">
         <div class="blog-img">
-          <img src="{% static 'img/3.jpg' %}" alt="Post" class="img-fluid">
+          <img src="{{ post.image.url }}" alt="Post" class="img-fluid">
         </div>
         <div class="row">
           <div class="col-sm-12 mb-2">
             <ul class="list-group list-group-horizontal">
               <li class="list-group-item">
-                <i class="fas fa-tags" aria-hidden="true"><a href="#"> Pemrograman</a></i>
+                <span>{{ post.author.get_full_name }}</span>
               </li>
             </ul>
           </div>
@@ -38,87 +41,23 @@
       </div>
       <div class="col-lg-8 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="200">
         <div class="blog-title mb-3">
-          <h3>Blog Post Design</h3>
+          <h3>{{ post.title }}</h3>
         </div>
         <div class="blog-date mb-2">
-          <span>Selasa,</span>
-          <span>01 Desember 2020</span>
+          {{ post.created_on | naturaltime }}
         </div>
         <div class="blog-desc">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis incidunt consequuntur accusamus
-            possimus maiores suscipit aperiam nemo....</p>
+          <p>{{ post.content |slice:':200'| safe }}...</p>
         </div>
         <div class="blog-read-more">
-          <button class="btn btn-outline-dark">Read More</button>
+          <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-dark">Read More</a>
         </div>
       </div>
     </div>
-    <div class="row main-row p-2" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">
-      <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="100">
-        <div class="blog-img">
-          <img src="{% static 'img/1.jpg' %}" alt="Post" class="img-fluid">
-        </div>
-        <div class="row">
-          <div class="col-sm-12 mb-2">
-            <ul class="list-group list-group-horizontal">
-              <li class="list-group-item">
-                <i class="fas fa-tags" aria-hidden="true"><a href="#"> Pemrograman</a></i>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="200">
-        <div class="blog-title mb-3">
-          <h3>Blog Post Design</h3>
-        </div>
-        <div class="blog-date mb-2">
-          <span>Rabu,</span>
-          <span>02 Desember 2020</span>
-        </div>
-        <div class="blog-desc">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis incidunt consequuntur accusamus
-            possimus maiores suscipit aperiam nemo....</p>
-        </div>
-        <div class="blog-read-more">
-          <button class="btn btn-outline-dark">Read More</button>
-        </div>
-      </div>
-    </div>
-    <div class="row main-row p-2" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">
-      <div class="col-lg-4 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="100">
-        <div class="blog-img">
-          <img src="{% static 'img/4.png' %}" alt="Post" class="img-fluid">
-        </div>
-        <div class="row">
-          <div class="col-sm-12 mb-2">
-            <ul class="list-group list-group-horizontal">
-              <li class="list-group-item">
-                <i class="fas fa-tags" aria-hidden="true"><a href="#"> Pemrograman</a></i>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8 col-md-12 col-sm-12" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="200">
-        <div class="blog-title mb-3">
-          <h3>Blog Post Design</h3>
-        </div>
-        <div class="blog-date mb-2">
-          <span>Kamis,</span>
-          <span>03 Desember 2020</span>
-        </div>
-        <div class="blog-desc">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quis incidunt consequuntur accusamus
-            possimus maiores suscipit aperiam nemo....</p>
-        </div>
-        <div class="blog-read-more">
-          <button class="btn btn-outline-dark">Read More</button>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
     <div class="button-blogpost">
-      <a href="{% url 'blog' %}" class="btn btnD1" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">View More</a>
+      <a href="{% url 'blog' %}" class="btn btnD1" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="0">View
+        More</a>
     </div>
   </div>
 </section>
@@ -137,7 +76,7 @@
       <div class="col-6">
         <div class="placeBox" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="500">
           <div class="imgBx">
-            <img src="{% static 'img/amri.jpeg' %}" class="img-fluid image-resize max-height">
+            <img src="{% static 'img/amri.webp' %}" class="img-fluid image-resize max-height">
           </div>
           <div class="content">
             <h3>Amri Reza Wahyudin<br><span>Back-End Programmer</span></h3>
@@ -147,7 +86,7 @@
       <div class="col-6" data-aos="fade-up" ata-aos-duration="1000" data-aos-delay="1000">
         <div class="placeBox">
           <div class="imgBx">
-            <img src="{% static 'img/maul.jpeg' %}" class="img-fluid image-resize">
+            <img src="{% static_webp 'img/maul.webp' %}" class="img-fluid image-resize">
           </div>
           <div class="content">
             <h3>Maulana Firmansyah<br><span>Front-End Programmer</span></h3>

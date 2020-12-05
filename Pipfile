@@ -9,8 +9,9 @@ django-crispy-forms = "*"
 django-summernote = "*"
 whitenoise = "*"
 psycopg2-binary = "*"
-pillow = "*"
 gunicorn = "*"
+pillow = "*"
+django-webp-converter = "*"
 
 [dev-packages]
 

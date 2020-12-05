@@ -4,17 +4,10 @@ from .models import Post
 from .forms import CommentForm
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
-# class PostList(generic.ListView):
-#     queryset = Post.objects.filter(status=1).order_by('-created_on')
-#     template_name = 'index.html'
-#     paginate_by = 3
-
-# class PostDetail(generic.DetailView):
-#     model = Post
-#     template_name = 'blog/post_detail.html'
 
 def HomePage(request):
-    return render(request, 'index.html')
+    recent_posts = Post.objects.filter(status=1).order_by('-created_on')[:3]
+    return render(request, 'index.html', {'recent_posts': recent_posts})
 
 def PostList(request):
     title = 'Blog'
@@ -30,11 +23,12 @@ def PostList(request):
         # Jika variabel page melebihi, tampilkan halaman terakhir
         post_list = paginator.page(paginator.num_pages)
     finally:
-        return render(request,
-                    'blog/index.html',
-                    {'page': page,
-                    'title': title,
-                    'post_list': post_list})
+        context = {
+            'page': page,
+            'title': title,
+            'post_list': post_list
+        }
+        return render(request, 'blog/index.html', context)
 
 def post_detail(request, slug):
     template_name = 'blog/post_detail.html'

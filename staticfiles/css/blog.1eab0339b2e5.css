@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+body {
+    padding-top: 56px;
+}
+
 .warna-bg
 {
 	background: linear-gradient(to right, rgba(91,134,229, .92), rgba(54,209,220, .92));
@@ -75,6 +80,11 @@
     margin-bottom:25px;
 }
 
+.card {
+    border: 0px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
 /*---DARK MODE TOGGLE---*/
 
 [data-theme="dark"] {
@@ -140,4 +150,21 @@
 
 [data-theme="dark"] .card-body {
     background-color: #303030 !important;
+}
+
+[data-theme="dark"] .card {
+    border: 0px solid rgba(0,0,0,.125);
+}
+
+[data-theme="dark"] .form-control {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #c061ff;
+
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    color: #fff;
+    border-color: #c061ff;
+
 }

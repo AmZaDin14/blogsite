@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "051cd9e0b06a80d3a4a18dbba640f97dc086935233f2fdb08bd45c840e4990cf"
+            "sha256": "d02c53945c17a8ee0c3176b8bd38a8f67bb2bfc2412ae3258c18e983c4b7aad4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,6 +46,13 @@
             ],
             "index": "pypi",
             "version": "==0.8.11.6"
+        },
+        "django-webp-converter": {
+            "hashes": [
+                "sha256:45bfc8cd1abc65497b7fd46678b63187346dc0d0c1512a36f79519014442e569"
+            ],
+            "index": "pypi",
+            "version": "==0.3.0"
         },
         "gunicorn": {
             "hashes": [

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog/layout.html" %}
 {% block content %}
 <!-- Awal Jumbotron -->
 <section class="jumbotron-bg">
@@ -19,18 +19,20 @@
 
 <!-- Awal Content -->
 <div class="container">
-    <nav class="breadcrumb ">
-        <h6 class="breadcrumb-item"><a href="index.html">Home</a></h6>
-        <h6 class="breadcrumb-item active">Blog Post</h6>
-    </nav>
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item active">Blog Post</li>
+    </ol>
+  </nav>
     <div class="row">
         {% for post in post_list %}
         <div class="col-md-6 mb-2">
             <div class="shadow p-3 border-0 card">
-                <img src="https://dummyimage.com/1920x1080/fff/000" class="card-img-top img-fluid" alt="Gambar">
+                <img src="{{ post.image.url }}" class="card-img-top img-fluid" alt="Gambar">
                 <div class="card-body">
                     <h6 class="card-title text-info"><i class="fas fa-tags" aria-hidden="true"></i> Category</h6>
-                    <p class="card-text"><small class="text-muted">{{ post.created_on }}</small></p>
+                    <p class="card-text"><small class="text-muted">{{ post.created_on | date:"l, d M Y | H.i" }}</small></p>
                     <h3 class="card-text"><a href="{% url 'post_detail' post.slug %}"
                             class="text-primary">{{ post.title }}</h3>
                 </div>

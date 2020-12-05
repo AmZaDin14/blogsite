@@ -1,71 +1,70 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'blog/layout.html' %} {% block content %}
 {% load crispy_forms_tags %}
 
-<style>
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #000;
-    }
-
-    .dark {
-        background-color: #000;
-    }
-
-    .post-banner {
-      object-fit: cover;
-      height: 200px;
-    }
-
-    .head_text {
-        color: white;
-    }
-
-    .card {
-        /* background-color: #aaa; */
-        box-shadow: 0 16px 48px #262626;
-        min-height: 300px;
-    }
-</style>
+<section class="jumbotron-bg">
+  <div class="jumbotron warna-bg text-white">
+    <div class="container">
+      <h1 class="display-4">StarLigHTs</h1>
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="container">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Selamat Datang!</strong> Web ini sedang dalam proses pengembangan
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'blog' %}">Blog Post</a></li>
+      <li class="breadcrumb-item active">{{ post.title }}</li>
+    </ol>
+  </nav>
   <div class="row">
-    <div class="col-md-10 card mb-4  mt-3 left">
-      <div class="card-body">
+    <div class="col-md-12 mb-4">
+      <div class="card border-0">
         <div class="card-body">
-          {% load static %}
-          <img src="{{ post.image.url }}" class="img-fluid post-banner">
+          <h1>{{ post.title }}</h2>
+          <div><a href="#0">{{ post.author.get_full_name }}</a></div>
+          <div>Posted on: {{ post.created_on | date:"l, d M Y | H.i" }}</div>
+          <figure class="figure">
+            <img src="{{ post.image.url }}" class="figure-img img-fluid rounded" alt="Gambar Postingan">
+            <figcaption class="figure-caption text-center">Keterangan Gambar</figcaption>
+          </figure>
+          <p>
+            {{ post.content | safe }}
+          </p>
         </div>
-        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author.get_full_name }} | {{ post.created_on }}</p>
-      </div>
-    </div>
 
-    <div class="col-md-10 card mb-4  mt-3 left">
-      <div class="card-body">
-        <p class="card-text ">{{ post.content | safe }}</p>
-      </div>
-    </div>
-
-    <div class="col-md-10 card mb-4 mt3">
-      <div class="card-body">
+    <div class="col-md-12 card mb-4 mt3">
+      <div class="card-body shadow p-3">
         <h2>{{ comments.count }} comments</h2>
 
         {% for comment in comments %}
-          <div class="comments" style="padding: 10px;">
-            <p class="font-weight-bold">
-              {{ comment.name }}
+        <div class="comments" style="padding: 10px;">
+          <p class="font-weight-bold">
+            {{ comment.name }}
             <span class=" text-muted font-weight-normal">
-              {{ comment.created_on }}
+              &ensp;{{ comment.created_on }}
             </span>
-            </p>
-            {{ comment.body | linebreaks}}
-          </div>
+          </p>
+          {{ comment.body | linebreaks}}
+        </div>
         {% endfor %}
       </div>
     </div>
-    <div class="col-md-10 card mb-4  mt-3 ">
-      <div class="card-body">
+    <div class="col-md-12 card mb-4  mt-3 ">
+      <div class="card-body shadow p-3">
         {% if new_comment %}
         <div class="alert alert-success" role="alert">
           Your comment is awaiting moderation
@@ -80,6 +79,9 @@
         {% endif %}
       </div>
     </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
